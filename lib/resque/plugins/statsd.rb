@@ -1,25 +1,25 @@
 module Resque
   module Plugins
     module Statsd
-      
+
       def after_enqueue_statsd(*args)
-        $statsd.increment("#{@queue}.enqueued")
-        $statsd.increment("total.enqueued")
+        $resque_statsd.increment("#{@queue}.en@queued")
+        $resque_statsd.increment("total.en@queued")
         
       end
       
       def after_perform_statsd(*args)
-        $statsd.increment("#{@queue}.finished")
-        $statsd.increment("total.finished")
+        $resque_statsd.increment("#{@queue}.finished")
+        $resque_statsd.increment("total.finished")
       end
       
       def on_failure_statsd(*args)
-        $statsd.increment("#{@queue}.failed")
-        $statsd.increment("total.failed")
+        $resque_statsd.increment("#{@queue}.failed")
+        $resque_statsd.increment("total.failed")
       end
       
       def around_perform_statsd(*args)
-        $statsd.time("#{@queue}.processed") do 
+        $resque_statsd.time("#{@queue}.processed") do 
           yield
         end
       end
@@ -27,3 +27,5 @@ module Resque
     end
   end
 end
+
+
