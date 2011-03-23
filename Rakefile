@@ -15,8 +15,8 @@ Jeweler::Tasks.new do |gem|
   gem.name = "resque-statsd"
   gem.homepage = "http://github.com/jamster/resque-statsd"
   gem.license = "MIT"
-  gem.summary = %Q{TODO: one-line summary of your gem}
-  gem.description = %Q{TODO: longer description of your gem}
+  gem.summary = %Q{Adds simple counters and timers for statsd into your Resque jobs}
+  gem.description = %Q{Will add a counter for enqueuing, performing, failing and timing Jobs}
   gem.email = "jayamster@gmail.com"
   gem.authors = ["Jason Amster"]
   # Include your dependencies below. Runtime dependencies are required when using your gem,
@@ -26,18 +26,18 @@ Jeweler::Tasks.new do |gem|
 end
 Jeweler::RubygemsDotOrgTasks.new
 
-require 'rspec/core'
-require 'rspec/core/rake_task'
-RSpec::Core::RakeTask.new(:spec) do |spec|
-  spec.pattern = FileList['spec/**/*_spec.rb']
-end
-
-RSpec::Core::RakeTask.new(:rcov) do |spec|
-  spec.pattern = 'spec/**/*_spec.rb'
-  spec.rcov = true
-end
-
-task :default => :spec
+# require 'rspec/core'
+# require 'rspec/core/rake_task'
+# RSpec::Core::RakeTask.new(:spec) do |spec|
+#   spec.pattern = FileList['spec/**/*_spec.rb']
+# end
+# 
+# RSpec::Core::RakeTask.new(:rcov) do |spec|
+#   spec.pattern = 'spec/**/*_spec.rb'
+#   spec.rcov = true
+# end
+# 
+# task :default => :spec
 
 require 'yard'
 YARD::Rake::YardocTask.new
