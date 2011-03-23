@@ -1,19 +1,25 @@
-= resque-statsd
+# resque-statsd
 
 Resque Statsd is a Resque plugin that will collect and send data samples from your Resque Jobs.  It samples 4 statistics for any Job for which the plugin extends, enqueue count, completion count, failure count, and the time to process.  It will monitor for each specific job, in addition to the totals for all jobs (not including timing stats)
 
-== CURRENT STATUS
-
+## CURRENT STATUS
+ 
 Tests on the way, but being used in production already
 
-== Usage
+## Final Outcome
 
-=== Install
+![Graph of a Job](https://img.skitch.com/20110323-ghsnyg8nhs6hta8etea63q6965.jpg "Report Running Job Stats")
+
+
+
+## Usage
+
+### Install
 
 	gem install resque-statsd
 	gem install jamster-statsd # really jnunemaker's version of the statsd rubygem
 	
-=== Rails Setup
+### Rails Setup
 
 in an initializer, set up the Statsd 
 
@@ -25,13 +31,13 @@ in file add code
 	ENV['APP_NAME'] = 'YOURAPPNAME_resque' # I add the _resque to separate against web stats
 	require 'resque-statsd' # Needs to come after the ENV variable setting
 	
-== Background Reading
+## Background Reading
 
-=== Graphite
+### Graphite
 
 http://graphite.wikidot.com/
 
-=== StatsD Comes From Etsy
+### StatsD Comes From Etsy
 
 The folks at Etsy (kastner) have come up with a neat node.js app to listen for Graphite stats.  
 
@@ -39,7 +45,7 @@ The folks at Etsy (kastner) have come up with a neat node.js app to listen for G
 * http://codeascraft.etsy.com/2011/02/15/measure-anything-measure-everything/
 * https://github.com/etsy/statsd
 
-=== Ruby StatsD Client
+### Ruby StatsD Client
 
 I've required a particular version (jnunemaker's) of the ruby StatsD client  
 Read the post here
@@ -47,7 +53,7 @@ Read the post here
 * http://railstips.org/blog/archives/2011/03/21/hi-my-name-is-john/
 * A Ruby statsd client (https://github.com/etsy/statsd)
 
-== Contributing to resque-statsd
+## Contributing to resque-statsd
  
 * Check out the latest master to make sure the feature hasn't been implemented or the bug hasn't been fixed yet
 * Check out the issue tracker to make sure someone already hasn't requested it and/or contributed it
@@ -57,7 +63,7 @@ Read the post here
 * Make sure to add tests for it. This is important so I don't break it in a future version unintentionally.
 * Please try not to mess with the Rakefile, version, or history. If you want to have your own version, or is otherwise necessary, that is fine, but please isolate to its own commit so I can cherry-pick around it.
 
-== Copyright
+## Copyright
 
 Copyright (c) 2011 Jason Amster. See LICENSE.txt for
 further details.
