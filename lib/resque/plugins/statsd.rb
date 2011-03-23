@@ -3,8 +3,8 @@ module Resque
     module Statsd
 
       def after_enqueue_statsd(*args)
-        $resque_statsd.increment("#{@queue}.en@queued")
-        $resque_statsd.increment("total.en@queued")
+        $resque_statsd.increment("#{@queue}.enqueued")
+        $resque_statsd.increment("total.enqueued")
         
       end
       
