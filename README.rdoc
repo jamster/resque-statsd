@@ -22,9 +22,8 @@ The folks at Etsy (kastner) have come up with a neat node.js app to listen for G
 I've required a particular version (jnunemaker's) of the ruby StatsD client  
 Read the post here
 	
-	http://railstips.org/blog/archives/2011/03/21/hi-my-name-is-john/
-
-A Ruby statsd client (https://github.com/etsy/statsd)
+* http://railstips.org/blog/archives/2011/03/21/hi-my-name-is-john/
+* A Ruby statsd client (https://github.com/etsy/statsd)
 
 == Contributing to resque-statsd
  
