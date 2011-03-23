@@ -4,7 +4,28 @@ Resque Statsd is a Resque plugin that will wrap the enqueueing, performing, fail
 
 == CURRENT STATUS
 
-COMPLETELY UNTESTED (NOT EVEN TRIED OUT)
+No tests but in production 
+
+== Usage
+
+=== Install
+
+	gem install resque-statsd
+	gem install jamster-statsd # really jnunemaker's version of the statsd rubygem
+	
+=== Rails Setup
+
+in an initializer, set up the Statsd 
+
+	touch  config/initializers/resque-statsd.rb
+	
+in file add code
+
+	ENV['GRAPHITE_HOST'] = 'graphite.YOURHOST.com'
+	ENV['APP_NAME'] = 'yourappname_resque' # I add the _resque to separate against web
+	require 'resque-statsd'
+	
+
 
 == Background Reading
 
