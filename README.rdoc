@@ -2,6 +2,9 @@
 
 Resque Statsd is a Resque plugin that will wrap the enqueueing, performing, failing, as well as timeing job run times withing Graphite monitoring. 
 
+== CURRENT STATUS
+
+COMPLETELY UNTESTED (NOT EVEN TRIED OUT)
 
 == Background Reading
 

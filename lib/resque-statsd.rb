@@ -5,7 +5,7 @@ $statsd.namespace="beenverified_#{ENV['RAILS_ENV']}.resque"
 
 module Resque
   module Plugins
-    module Loner
+    module Statsd
       VERSION = "0.0.1"
     end
   end
