@@ -8,6 +8,11 @@ module Resque
         
       end
       
+      def before_perform_statsd(*args)
+        $resque_statsd.increment("#{@queue}.started")
+        $resque_statsd.increment("total.started")
+      end
+      
       def after_perform_statsd(*args)
         $resque_statsd.increment("#{@queue}.finished")
         $resque_statsd.increment("total.finished")
