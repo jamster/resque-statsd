@@ -1,11 +1,16 @@
 module Resque
   module Plugins
     module Statsd
-
       def after_enqueue_statsd(*args)
         StatsdHelper.statsd.increment("queues.#{@queue}.enqueued")
         StatsdHelper.statsd.increment("jobs.#{self.name}.enqueued")
         StatsdHelper.statsd.increment("total.enqueued")
+      end
+
+      def before_perform_statsd(*args)
+        StatsdHelper.statsd.increment("queues.#{@queue}.started")
+        StatsdHelper.statsd.increment("jobs.#{self.name}.started")
+        StatsdHelper.statsd.increment("total.started")
       end
 
       def after_perform_statsd(*args)
