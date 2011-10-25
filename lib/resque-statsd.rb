@@ -1,5 +1,5 @@
 require 'rubygems'
-require 'statsd' # Really Jnunemakers's mine branch of statsd 
+require 'statsd' # Really Jnunemakers's mine branch of statsd
 require 'resque/plugins/statsd'
 
 class StatsdHelper
@@ -37,7 +37,7 @@ end
 module Resque
   module Plugins
     module Statsd
-      VERSION = "0.0.2"
+      VERSION = "0.0.3"
     end
   end
 end

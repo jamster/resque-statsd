@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{resque-statsd}
-  s.version = "0.0.2"
+  s.version = "0.0.3"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
-  s.authors = [%q{Jason Amster}]
-  s.date = %q{2011-08-25}
+  s.authors = ["Jason Amster"]
+  s.date = %q{2011-10-25}
   s.description = %q{Will add a counter for enqueuing, performing, failing and timing Jobs}
   s.email = %q{jayamster@gmail.com}
   s.extra_rdoc_files = [
@@ -27,13 +27,14 @@ Gem::Specification.new do |s|
     "VERSION",
     "lib/resque-statsd.rb",
     "lib/resque/plugins/statsd.rb",
+    "resque-statsd.gemspec",
     "spec/resque-statsd_spec.rb",
     "spec/spec_helper.rb"
   ]
   s.homepage = %q{http://github.com/jamster/resque-statsd}
-  s.licenses = [%q{MIT}]
-  s.require_paths = [%q{lib}]
-  s.rubygems_version = %q{1.8.5}
+  s.licenses = ["MIT"]
+  s.require_paths = ["lib"]
+  s.rubygems_version = %q{1.3.6}
   s.summary = %q{Adds simple counters and timers for statsd into your Resque jobs}
   s.test_files = [
     "spec/resque-statsd_spec.rb",
@@ -41,9 +42,10 @@ Gem::Specification.new do |s|
   ]
 
   if s.respond_to? :specification_version then
+    current_version = Gem::Specification::CURRENT_SPECIFICATION_VERSION
     s.specification_version = 3
 
-    if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
+    if Gem::Version.new(Gem::RubyGemsVersion) >= Gem::Version.new('1.2.0') then
       s.add_runtime_dependency(%q<jamster-statsd>, [">= 0"])
       s.add_development_dependency(%q<yard>, ["~> 0.6.0"])
       s.add_development_dependency(%q<bundler>, ["~> 1.0.0"])
