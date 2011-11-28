@@ -28,11 +28,14 @@ in an initializer, set up the Statsd
 	
 in file add code
 
+    require 'enqueue_time'
+
+    module Resque
+      include Resque::EnqueueTime
+    end
+
 	StatsdHelper.graphite_host = 'graphite.YOUR_HOST.com'
 	StatsdHelper.namespace = "YOUR_APP.#{Rails.env.development? ? ENV['USER'] : Rails.env}.resque"
-	module Resque
-	  include Resque::EnqueueTime
-	end
 	
 Change `YOUR_HOST` and `YOUR_APP` accordingly.
 
