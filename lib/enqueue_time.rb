@@ -38,7 +38,7 @@ module Resque
     def perform
       begin
         if payload['enqueued_at']
-           queue_time = (Time.now - DateTime.parse(payload['enqueued_at']) * 1000.0
+           queue_time = (Time.now - DateTime.parse(payload['enqueued_at'])) * 1000.0
            StatsdHelper.statsd.timing("queues.#{queue}.queue_time", queue_time)
            StatsdHelper.statsd.timing("total.queue_time", queue_time)
          end
