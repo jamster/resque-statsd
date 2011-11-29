@@ -9,24 +9,21 @@ module Resque
     def self.included(base) 
       base.class_eval do
         alias_method :push_without_enqueued_at, :push
-        extend ClassMethods
+        # Wrapper for the original Resque push method, which adds 
+        # enqueued_at time
+        def push(queue, item)
+          begin
+            if item.respond_to?(:[]=)
+              item[:enqueued_at] = Time.now
+            end
+          rescue Exception => e
+            Rails.logger.error "Error in Resque::EnqueueTime: #{e.message}"
+          end
+          push_without_enqueued_at queue, item
+        end
       end
     end
 
-    module ClassMethods
-      # Wrapper for the original Resque push method, which adds 
-      # enqueued_at time
-      def push(queue, item)
-        begin
-          if item.respond_to?(:[]=)
-            item[:enqueued_at] = Time.now
-          end
-        rescue Exception => e
-          Rails.logger.error "Error in Resque::EnqueueTime: #{e.message}"
-        end
-        push_without_enqueued_at queue, item
-      end
-    end
   end
 end
 
