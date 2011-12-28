@@ -1,4 +1,4 @@
-# Monkey-patch to record queue length since resque doesn't have hooks that give access to the 
+# Monkey-patch to record queue length since resque doesn't have hooks that give access to the
 # redis stored object, so we can add metadata
 # Ideal solution: contribute to the resque project to add hooks for the push and perform action:
 # https://github.com/defunkt/resque/issues/464
@@ -6,10 +6,10 @@
 module Resque
   module EnqueueTime
 
-    def self.included(base) 
+    def self.included(base)
       base.class_eval do
         alias_method :push_without_enqueued_at, :push
-        # Wrapper for the original Resque push method, which adds 
+        # Wrapper for the original Resque push method, which adds
         # enqueued_at time
         def push(queue, item)
           begin
@@ -41,7 +41,7 @@ module Resque
          end
       rescue Exception => e
         Rails.logger.error "Error in Resque::EnqueueTime in recording queue_time in statsd: #{e.message}"
-      end  
+      end
       perform_without_enqueue_time
     end
 
