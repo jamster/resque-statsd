@@ -18,13 +18,13 @@ This is a fork of jamster's original gem designed to make it easier to run with 
 
 Add this to your Gemfile:
 
-	gem "resque-statsd", :git => "git://github.com/cloudability/resque-statsd.git"
+    gem "resque-statsd", :git => "git://github.com/cloudability/resque-statsd.git"
 
 ### Rails Setup
 
 in an initializer, set up the Statsd
 
-	touch  config/initializers/resque-statsd.rb
+    touch  config/initializers/resque-statsd.rb
 
 in file add code
 
@@ -34,8 +34,8 @@ in file add code
       include Resque::EnqueueTime
     end
 
-	StatsdHelper.graphite_host = 'graphite.YOUR_HOST.com'
-	StatsdHelper.namespace = "YOUR_APP.#{Rails.env.development? ? ENV['USER'] : Rails.env}.resque"
+    StatsdHelper.graphite_host = 'graphite.YOUR_HOST.com'
+    StatsdHelper.namespace = "YOUR_APP.#{Rails.env.development? ? ENV['USER'] : Rails.env}.resque"
 
 Change `YOUR_HOST` and `YOUR_APP` accordingly.
 
@@ -43,12 +43,12 @@ Change `YOUR_HOST` and `YOUR_APP` accordingly.
 
 Extend your class like this:
 
-	class MyJob
-		extend Resque::Plugins::Statsd
-		def self.perform(*payload)
-			# ..
-		end
-	end
+    class MyJob
+      extend Resque::Plugins::Statsd
+      def self.perform(*payload)
+        # ..
+      end
+    end
 
 ## Background Reading
 
