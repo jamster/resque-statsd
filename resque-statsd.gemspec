@@ -5,35 +5,29 @@
 
 Gem::Specification.new do |s|
   s.name = "resque-statsd"
-  s.version = "0.0.3"
+  s.version = "0.0.4"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
-  s.authors = ["Jason Amster"]
+  s.authors = ["Jon Frisby", "Jason Amster"]
   s.date = "2012-03-23"
   s.description = "Will add a counter for enqueuing, performing, failing and timing Jobs"
-  s.email = "jayamster@gmail.com"
+  s.email = "engineering@cloudability.com"
   s.extra_rdoc_files = [
     "LICENSE.txt",
     "README.mdown"
   ]
   s.files = [
-    ".document",
-    ".rspec",
-    ".rvmrc",
     "Gemfile",
     "Gemfile.lock",
     "LICENSE.txt",
     "README.mdown",
     "Rakefile",
-    "VERSION",
     "lib/enqueue_time.rb",
     "lib/resque-statsd.rb",
     "lib/resque/plugins/statsd.rb",
-    "resque-statsd.gemspec",
-    "spec/resque-statsd_spec.rb",
-    "spec/spec_helper.rb"
+    "resque-statsd.gemspec"
   ]
-  s.homepage = "http://github.com/jamster/resque-statsd"
+  s.homepage = "http://github.com/cloudability/resque-statsd"
   s.licenses = ["MIT"]
   s.require_paths = ["lib"]
   s.rubygems_version = "1.8.13"
