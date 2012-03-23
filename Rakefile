@@ -22,7 +22,8 @@ Jeweler::Tasks.new do |gem|
 
   gem.files.reject! do |fn|
     fn =~ /^\.(rvmrc|rspec|document|gitignore)$/ ||
-    fn =~ /^VERSION$/
+    fn =~ /^VERSION$/ ||
+    fn =~ /^(spec|features)\//
   end
 end
 Jeweler::RubygemsDotOrgTasks.new
