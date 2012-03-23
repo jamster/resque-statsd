@@ -13,12 +13,12 @@ require 'jeweler'
 Jeweler::Tasks.new do |gem|
   # gem is a Gem::Specification... see http://docs.rubygems.org/read/chapter/20 for more options
   gem.name = "resque-statsd"
-  gem.homepage = "http://github.com/jamster/resque-statsd"
+  gem.homepage = "http://github.com/cloudability/resque-statsd"
   gem.license = "MIT"
   gem.summary = %Q{Adds simple counters and timers for statsd into your Resque jobs}
   gem.description = %Q{Will add a counter for enqueuing, performing, failing and timing Jobs}
-  gem.email = "jayamster@gmail.com"
-  gem.authors = ["Jason Amster"]
+  gem.email = "engineering@cloudability.com"
+  gem.authors = ["Jon Frisby", "Jason Amster"]
   # Include your dependencies below. Runtime dependencies are required when using your gem,
   # and development dependencies are only needed for development (ie running rake tasks, tests, etc)
   #  gem.add_runtime_dependency 'jabber4r', '> 0.1'
