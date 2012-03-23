@@ -11,7 +11,6 @@ require 'rake'
 
 require 'jeweler'
 Jeweler::Tasks.new do |gem|
-  # gem is a Gem::Specification... see http://docs.rubygems.org/read/chapter/20 for more options
   gem.name = "resque-statsd"
   gem.homepage = "http://github.com/cloudability/resque-statsd"
   gem.license = "MIT"
@@ -19,10 +18,12 @@ Jeweler::Tasks.new do |gem|
   gem.description = %Q{Will add a counter for enqueuing, performing, failing and timing Jobs}
   gem.email = "engineering@cloudability.com"
   gem.authors = ["Jon Frisby", "Jason Amster"]
-  # Include your dependencies below. Runtime dependencies are required when using your gem,
-  # and development dependencies are only needed for development (ie running rake tasks, tests, etc)
-  #  gem.add_runtime_dependency 'jabber4r', '> 0.1'
-  #  gem.add_development_dependency 'rspec', '> 1.2.3'
+  gem.require_path = 'lib'
+
+  gem.files.reject! do |fn|
+    fn =~ /^\.(rvmrc|rspec|document|gitignore)$/ ||
+    fn =~ /^VERSION$/
+  end
 end
 Jeweler::RubygemsDotOrgTasks.new
 
@@ -39,5 +40,5 @@ Jeweler::RubygemsDotOrgTasks.new
 #
 # task :default => :spec
 
-require 'yard'
-YARD::Rake::YardocTask.new
+# require 'yard'
+# YARD::Rake::YardocTask.new
