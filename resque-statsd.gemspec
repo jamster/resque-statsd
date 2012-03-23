@@ -4,14 +4,14 @@
 # -*- encoding: utf-8 -*-
 
 Gem::Specification.new do |s|
-  s.name = %q{resque-statsd}
+  s.name = "resque-statsd"
   s.version = "0.0.3"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Jason Amster"]
-  s.date = %q{2011-10-25}
-  s.description = %q{Will add a counter for enqueuing, performing, failing and timing Jobs}
-  s.email = %q{jayamster@gmail.com}
+  s.date = "2012-03-23"
+  s.description = "Will add a counter for enqueuing, performing, failing and timing Jobs"
+  s.email = "jayamster@gmail.com"
   s.extra_rdoc_files = [
     "LICENSE.txt",
     "README.mdown"
@@ -19,48 +19,42 @@ Gem::Specification.new do |s|
   s.files = [
     ".document",
     ".rspec",
+    ".rvmrc",
     "Gemfile",
     "Gemfile.lock",
     "LICENSE.txt",
     "README.mdown",
     "Rakefile",
     "VERSION",
+    "lib/enqueue_time.rb",
     "lib/resque-statsd.rb",
     "lib/resque/plugins/statsd.rb",
     "resque-statsd.gemspec",
     "spec/resque-statsd_spec.rb",
     "spec/spec_helper.rb"
   ]
-  s.homepage = %q{http://github.com/jamster/resque-statsd}
+  s.homepage = "http://github.com/jamster/resque-statsd"
   s.licenses = ["MIT"]
   s.require_paths = ["lib"]
-  s.rubygems_version = %q{1.3.6}
-  s.summary = %q{Adds simple counters and timers for statsd into your Resque jobs}
-  s.test_files = [
-    "spec/resque-statsd_spec.rb",
-    "spec/spec_helper.rb"
-  ]
+  s.rubygems_version = "1.8.13"
+  s.summary = "Adds simple counters and timers for statsd into your Resque jobs"
 
   if s.respond_to? :specification_version then
-    current_version = Gem::Specification::CURRENT_SPECIFICATION_VERSION
     s.specification_version = 3
 
-    if Gem::Version.new(Gem::RubyGemsVersion) >= Gem::Version.new('1.2.0') then
+    if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
       s.add_runtime_dependency(%q<jamster-statsd>, [">= 0"])
-      s.add_development_dependency(%q<yard>, ["~> 0.6.0"])
-      s.add_development_dependency(%q<bundler>, ["~> 1.0.0"])
-      s.add_development_dependency(%q<jeweler>, ["~> 1.5.2"])
+      s.add_development_dependency(%q<yard>, [">= 0"])
+      s.add_development_dependency(%q<jeweler>, [">= 0"])
     else
       s.add_dependency(%q<jamster-statsd>, [">= 0"])
-      s.add_dependency(%q<yard>, ["~> 0.6.0"])
-      s.add_dependency(%q<bundler>, ["~> 1.0.0"])
-      s.add_dependency(%q<jeweler>, ["~> 1.5.2"])
+      s.add_dependency(%q<yard>, [">= 0"])
+      s.add_dependency(%q<jeweler>, [">= 0"])
     end
   else
     s.add_dependency(%q<jamster-statsd>, [">= 0"])
-    s.add_dependency(%q<yard>, ["~> 0.6.0"])
-    s.add_dependency(%q<bundler>, ["~> 1.0.0"])
-    s.add_dependency(%q<jeweler>, ["~> 1.5.2"])
+    s.add_dependency(%q<yard>, [">= 0"])
+    s.add_dependency(%q<jeweler>, [">= 0"])
   end
 end
 
