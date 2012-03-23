@@ -14,7 +14,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  bundler (~> 1.0.0)
   jamster-statsd
-  jeweler (~> 1.5.2)
-  yard (~> 0.6.0)
+  jeweler
+  yard
