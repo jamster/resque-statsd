@@ -3,8 +3,8 @@
 Resque Statsd is a Resque plugin that will collect and send data samples from your Resque Jobs.  It samples 4 statistics for any Job for which the plugin extends, enqueue count, completion count, failure count, and the time to process.  It will monitor for each specific job, in addition to the totals for all jobs (not including timing stats)
 
 ## CURRENT STATUS
- 
-Tests on the way, but being used in production already
+
+This is a fork of jamster's original gem designed to make it easier to run with Bundler and Rails 3.0.
 
 ## Final Outcome
 
@@ -16,21 +16,40 @@ Tests on the way, but being used in production already
 
 ### Install
 
-	gem install resque-statsd
-	gem install jamster-statsd # really jnunemaker's version of the statsd rubygem
-	
+Add this to your Gemfile:
+
+    gem "resque-statsd", :git => "git://github.com/cloudability/resque-statsd.git"
+
 ### Rails Setup
 
-in an initializer, set up the Statsd 
+in an initializer, set up the Statsd
 
-	touch  config/initializers/resque-statsd.rb
-	
+    touch  config/initializers/resque-statsd.rb
+
 in file add code
 
-	ENV['GRAPHITE_HOST'] = 'graphite.YOURHOST.com'
-	ENV['APP_NAME'] = 'YOURAPPNAME_resque' # I add the _resque to separate against web stats
-	require 'resque-statsd' # Needs to come after the ENV variable setting
-	
+    require 'enqueue_time'
+
+    module Resque
+      include Resque::EnqueueTime
+    end
+
+    StatsdHelper.graphite_host = 'graphite.YOUR_HOST.com'
+    StatsdHelper.namespace = "YOUR_APP.#{Rails.env.development? ? ENV['USER'] : Rails.env}.resque"
+
+Change `YOUR_HOST` and `YOUR_APP` accordingly.
+
+### In Your Code
+
+Extend your class like this:
+
+    class MyJob
+      extend Resque::Plugins::Statsd
+      def self.perform(*payload)
+        # ..
+      end
+    end
+
 ## Background Reading
 
 ### Graphite
@@ -39,7 +58,7 @@ http://graphite.wikidot.com/
 
 ### StatsD Comes From Etsy
 
-The folks at Etsy (kastner) have come up with a neat node.js app to listen for Graphite stats.  
+The folks at Etsy (kastner) have come up with a neat node.js app to listen for Graphite stats.
 
 * http://codeascraft.etsy.com/2010/12/08/track-every-release/
 * http://codeascraft.etsy.com/2011/02/15/measure-anything-measure-everything/
@@ -47,14 +66,14 @@ The folks at Etsy (kastner) have come up with a neat node.js app to listen for G
 
 ### Ruby StatsD Client
 
-I've required a particular version (jnunemaker's) of the ruby StatsD client  
+I've required a particular version (jnunemaker's) of the ruby StatsD client
 Read the post here
-	
+
 * http://railstips.org/blog/archives/2011/03/21/hi-my-name-is-john/
 * A Ruby statsd client (https://github.com/etsy/statsd)
 
 ## Contributing to resque-statsd
- 
+
 * Check out the latest master to make sure the feature hasn't been implemented or the bug hasn't been fixed yet
 * Check out the issue tracker to make sure someone already hasn't requested it and/or contributed it
 * Fork the project
