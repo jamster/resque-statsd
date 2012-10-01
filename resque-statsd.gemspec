@@ -7,6 +7,6 @@ Gem::Specification.new do |s|
  s.description = "Will add a counter for enqueuing, performing, failing and timing Jobs"
  s.email       = "jayamster@gmail.com"
  s.authors     = ["Jason Amster"]
- s.files       = ["lib/resque-statsd.rb"] + Dir["lib/resque/*"]
+ s.files       = ["lib/resque-statsd.rb", "lib/resque/plugins/statsd.rb"]
 end
 
