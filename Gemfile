@@ -13,4 +13,7 @@ group :development do
   # gem "rcov", ">= 0"
 end
 
-gem 'jamster-statsd'
+if !ENV['CUSTOM_STATSD']
+  # A custom statd client is being used
+  gem 'jamster-statsd'
+end
